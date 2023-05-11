@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      containers:
+        - env:
+          envFrom:
+            - configMapRef:
+                name: todo-api
+          env:
+           - name: DATABASE_USER
+             value: todoapp
+           - name: DATABASE_PASSWORD
+             value: redhat123
+           - name: DATABASE_SVC_HOSTNAME
+             value: tododb
+           - name: DATABASE_NAME
+             value: todo
